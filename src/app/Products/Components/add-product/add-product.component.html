@@ -1,0 +1,75 @@
+<div id="container">
+    <h1>Nuevo producto</h1>
+    <form #ProductForm="ngForm">
+        <div>
+            <label for="name" class="label">Nombre</label>
+            <input type="text" class="input" id="name"
+                    required
+                    [(ngModel)]="product.name" name="name"
+                    #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+        <div>
+            <label for="price" class="label">Precio</label>
+            <input type="text" class="input" id="price"
+                    required
+                    [(ngModel)]="product.price" name="price"
+                    #price="ngModel">
+            <div [hidden]="price.valid || price.pristine"
+                class="alert alert-danger">
+                Price is required
+            </div>
+        </div>
+        <div>
+            <label for="iva" class="label">Iva</label>
+            <input type="text" class="input" id="iva"
+                    required
+                    [(ngModel)]="product.iva" name="iva"
+                    #iva="ngModel">
+            <div [hidden]="iva.valid || iva.pristine"
+                class="alert alert-danger">
+                Iva is required
+            </div>
+        </div>
+        <div>    
+            <label for="description" class="label">Description</label>
+            <input type="text" class="input" id="description"
+                    required
+                    [(ngModel)]="product.description" name="description"
+                    #description="ngModel">
+            <div [hidden]="description.valid || description.pristine"
+                class="alert alert-danger">
+                Description is required
+            </div>
+        </div>
+        <div>
+            <label for="stock" class="label">Stock</label>
+            <input type="text" class="input" id="stock"
+                    required
+                    [(ngModel)]="product.stock" name="stock"
+                    #stock="ngModel">
+            <div [hidden]="stock.valid || stock.pristine"
+                class="alert alert-danger">
+                Phone is required
+            </div>
+        </div>
+        <div>
+            <label for="category" class="label">category</label>
+            <input type="text" class="input" id="category"
+                    required
+                    [(ngModel)]="product.categoryId" name="category"
+                    #category="ngModel" >
+            <div [hidden]="category.valid || category.pristine"
+                class="alert alert-danger">
+                Category is required
+            </div>
+        </div>
+    </form>
+    <div id="div-buttons">
+      <!-- <button id="btnSubmit" type="submit" (click)="addEmployee()" [disabled]="!EmployeeForm.form.valid">Crear empleado</button>
+      <button id="btnCancel" (click)="cancel()">Cancel</button>-->
+    </div>
+  </div>

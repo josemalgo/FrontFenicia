@@ -1,0 +1,123 @@
+<div id="container">
+    <fieldset>
+        <legend>Datos del empleado</legend>
+        <div>
+            <label for="name" class="label">Nombre</label>
+            <input type="text" class="input" id="name"
+                    required
+                    [(ngModel)]="employee.name" name="name"
+                    #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                class="alert alert-danger">
+                Name is required
+            </div>
+        </div>
+        <div>
+            <label for="surname" class="label">Apellido</label>
+            <input type="text" class="input" id="surname"
+                    required
+                    [(ngModel)]="employee.surname" name="surname"
+                    #surname="ngModel">
+            <div [hidden]="surname.valid || surname.pristine"
+                class="alert alert-danger">
+                Surname is required
+            </div>
+        </div>
+        <div>
+            <label for="job" class="label">Posición</label>
+            <input type="text" class="input" id="job"
+                    required
+                    [(ngModel)]="employee.job" name="job"
+                    #job="ngModel">
+            <div [hidden]="job.valid || job.pristine"
+                class="alert alert-danger">
+                Job is required
+            </div>
+        </div>
+        <div>    
+            <label for="email" class="label">Email</label>
+            <input type="text" class="input" id="email"
+                    required
+                    [(ngModel)]="employee.email" name="email"
+                    #email="ngModel">
+            <div [hidden]="email.valid || email.pristine"
+                class="alert alert-danger">
+                Email is required
+            </div>
+        </div>
+        <div>
+            <label for="phone" class="label">Phone</label>
+            <input type="text" class="input" id="phone"
+                    required
+                    [(ngModel)]="employee.phone" name="phone"
+                    #phone="ngModel">
+            <div [hidden]="phone.valid || phone.pristine"
+                class="alert alert-danger">
+                Phone is required
+            </div>
+        </div>
+    </fieldset>
+  </div>
+  <!--Listado de orders 
+  <div>
+    <table id="employee-table">
+        <thead>
+          <tr>
+            <th style="display: none">ID</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>JOB</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="employees?.length != 0">
+          <tr *ngFor="let employee of employees | appFilter:searchText; let i = index" (click)="ClickedRow(i)"
+              [ngClass]="{'active': i == HighlightRow}">
+            <td style="display: none"> {{employee.id}} </td>
+            <td> {{employee.name}} </td>
+            <td> {{employee.surname}} </td>
+            <td> {{employee.job}} </td>
+            <td> {{employee.email}} </td>
+            <td> {{employee.phone}} </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="employees?.length == 0">
+          <tr>
+            <td colspan="4" class="no-data-available">No data!</td>
+          </tr>
+        <tbody>
+      </table>
+    </div>
+    <div>
+        <table id="employee-table">
+            <thead>
+              <tr>
+                <th style="display: none">ID</th>
+                <th>NAME</th>
+                <th>SURNAME</th>
+                <th>JOB</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="employees?.length != 0">
+              <tr *ngFor="let employee of employees | appFilter:searchText; let i = index" (click)="ClickedRow(i)"
+                  [ngClass]="{'active': i == HighlightRow}">
+                <td style="display: none"> {{employee.id}} </td>
+                <td> {{employee.name}} </td>
+                <td> {{employee.surname}} </td>
+                <td> {{employee.job}} </td>
+                <td> {{employee.email}} </td>
+                <td> {{employee.phone}} </td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="employees?.length == 0">
+              <tr>
+                <td colspan="4" class="no-data-available">No data!</td>
+              </tr>
+            <tbody>
+          </table>
+        </div>
+      -->
+    
