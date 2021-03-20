@@ -22,7 +22,9 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { ViewEmployeeComponent } from './Employees/Components/view-employee/view-employee.component';
 import { LoginComponent } from './Login/Component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
