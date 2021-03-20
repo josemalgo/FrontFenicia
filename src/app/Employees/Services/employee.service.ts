@@ -3,6 +3,7 @@ import { Employee } from '../../Models/Employee.model'
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Response } from '../Models/response';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -20,8 +21,8 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees() : Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.url);
+  getEmployees() : Observable<Response> {
+    return this.http.get<Response>(this.url);
   }
 
   getEmployeesById(id: string): Observable<Employee> {

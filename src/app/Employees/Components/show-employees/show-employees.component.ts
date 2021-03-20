@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../Services/employee.service';
 import { Employee } from '../../../Models/Employee.model';
 import { FilterPipe } from '../../../Pipes/filter.pipe';
-
+import { Response } from '../../Models/response';
 
 @Component({
   selector: 'app-show-employees',
@@ -21,7 +21,10 @@ export class ShowEmployeesComponent implements OnInit {
     id: ""
   };
 
-  employees: Employee[] = [];
+  employees: Response = {
+    employees: [],
+  };
+
   idSelected: string | undefined;
   HighlightRow: number | undefined;
   private _searchText: string = "";
@@ -32,7 +35,7 @@ export class ShowEmployeesComponent implements OnInit {
   }
   set searchText(val: string) {
     this._searchText = val;
-    this.employeesFiltered = this.filter.transform(this.employees, val );
+    this.employeesFiltered = this.filter.transform(this.employees.employees, val );
   }
 
   constructor(private employeeService: EmployeeService, private filter: FilterPipe) {
@@ -42,7 +45,7 @@ export class ShowEmployeesComponent implements OnInit {
   ClickedRow(index: number): void {
     this.HighlightRow = index;
     if (this.employeesFiltered.length == 0)
-      this.idSelected = this.employees[index].id;
+      this.idSelected = this.employees.employees[index].id;
     else
       this.idSelected = this.employeesFiltered[index].id;
   }
@@ -53,6 +56,6 @@ export class ShowEmployeesComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService.getEmployees()
-      .subscribe((data: Employee[]) => this.employees = data)
+      .subscribe((data: Response) => this.employees = data)
   }
 }

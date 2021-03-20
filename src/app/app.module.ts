@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,7 +20,8 @@ import { EditProductComponent } from './Products/Components/edit-product/edit-pr
 import { DeleteProductComponent } from './Products/Components/delete-product/delete-product.component';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { ViewEmployeeComponent } from './Employees/Components/view-employee/view-employee.component';
-import { LoginComponent } from './Login/login/login.component';
+import { LoginComponent } from './Login/Component/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { LoginComponent } from './Login/login/login.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

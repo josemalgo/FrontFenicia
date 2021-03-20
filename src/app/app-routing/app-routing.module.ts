@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import { ShowEmployeesComponent } from '../Employees/Components/show-employees/show-employees.component';
 import { ProductDetailComponent } from '../Products/Components/product-detail/product-detail.component'
-import { LoginComponent } from '../Login/login/login.component';
+import { LoginComponent } from '../Login/Component/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
