@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../Services/employee.service';
 import { Employee } from '../../../Models/Employee.model';
-import { FilterPipe } from '../../../Pipes/filter.pipe';
 import { Response } from '../../Models/response';
+import { Guid } from 'guid-typescript';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-show-employees',
@@ -25,31 +26,13 @@ export class ShowEmployeesComponent implements OnInit {
     employees: [],
   };
 
-  idSelected: string | undefined;
-  HighlightRow: number | undefined;
-  private _searchText: string = "";
-  employeesFiltered: Employee[] = [];
+  public displayedColumns = ['name', 'surname', 'email', 'job', 'phone', 'detail', 'update', 'delete'];
 
-  get searchText(): string {
-    return this._searchText;
-  }
-  set searchText(val: string) {
-    this._searchText = val;
-    this.employeesFiltered = this.filter.transform(this.employees.employees, val );
-  }
+  public dataSource = new MatTableDataSource<Employee>();
 
-  constructor(private employeeService: EmployeeService, private filter: FilterPipe) {
+  constructor(private employeeService: EmployeeService) {
 
   }
-
-  ClickedRow(index: number): void {
-    this.HighlightRow = index;
-    if (this.employeesFiltered.length == 0)
-      this.idSelected = this.employees.employees[index].id;
-    else
-      this.idSelected = this.employeesFiltered[index].id;
-  }
-
   ngOnInit(): void {
     this.getEmployees();
   }
@@ -57,5 +40,14 @@ export class ShowEmployeesComponent implements OnInit {
   getEmployees(): void {
     this.employeeService.getEmployees()
       .subscribe((data: Response) => this.employees = data)
+  }
+
+  redirectToDetails(id: Guid): void {
+  }
+
+  redirectToUpdate(id: Guid): void {
+  }
+
+  redirectToDelete(id: Guid): void {
   }
 }
